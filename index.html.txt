@@ -1,0 +1,977 @@
+META TAG (title): Browser
+
+    
+        Write, edit and run HTML, CSS and JavaScript code online.
+    
+    
+        Our HTML editor updates the webview automatically in real-time as you write code.
+    
+    
+
+    
+    
+    META TAG (title): Hareem Farooq - Future Lawyer & Creative Explorer
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --accent-color: #764ba2;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Custom Cursor */
+        body {
+            cursor: none;
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            position: fixed;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent-color);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+            }
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero .tagline {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease 0.3s both;
+            opacity: 0.9;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s both;
+            line-height: 1.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .cta-button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .cta-primary {
+            background: white;
+            color: var(--accent-color);
+            box-shadow: var(--shadow);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-bg {
+            background: white;
+        }
+
+        .section-bg-alt {
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--text-dark);
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-gradient);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .profile-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            margin: 0 auto 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .profile-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .about-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: 600;
+        }
+
+        /* Interests Section */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .interest-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            transition: left 0.4s ease;
+            z-index: 1;
+        }
+
+        .interest-card:hover::before {
+            left: 0;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .interest-card>* {
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease 0.2s;
+        }
+
+        .interest-card:hover>* {
+            color: white;
+        }
+
+        .interest-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .interest-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .interest-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Goals Section */
+        .goals-container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            margin-top: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .goals-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, #667eea, #764ba2, #f093fb, #f5576c, #667eea);
+            animation: rotate 10s linear infinite;
+            z-index: 1;
+        }
+
+        .goals-container::after {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            background: white;
+            border-radius: 15px;
+            z-index: 2;
+        }
+
+        .goals-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        @keyframes rotate {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .goals-content h3 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .goals-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+        }
+
+        /* Skills Progress Bars */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .skill-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .skill-percentage {
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-gradient);
+            border-radius: 4px;
+            width: 0;
+            transition: width 2s ease;
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-hover);
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--primary-gradient);
+            z-index: 1001;
+            transition: width 0.3s ease;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .interests-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease;
+        }
+
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    
+
+    
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+        
+            Hareem Farooq
+            
+                
+• Home                
+• About                
+• Interests                
+• Goals                
+• Skills                
+• Contact            
+        
+    
+
+    
+    
+        
+        
+            Hareem Farooq
+            16 Years Old • Future Lawyer • Creative Explorer
+            Passionate about justice, creativity, and making a difference in the world. Currently awaiting O-Level results and ready to embark on an exciting journey towards becoming a lawyer who stands up for people.
+            
+                
+                    🌟 Discover My Story
+                
+                
+                    💬 Let's Connect
+                
+            
+        
+    
+
+    
+    
+        
+            About Me
+            
+                
+                    
+                        👩‍🎓
+                        Hareem Farooq
+                        16 Years Old
+                        Crescent O-Level Graduate
+                        Aspiring Lawyer
+                    
+                
+                
+                    Hello! I'm Hareem, a 16-year-old with big dreams and diverse passions. I recently completed my O-Levels at Crescent School and I'm eagerly awaiting my results in August.
+
+                    My world is filled with creativity, sports, learning, and exploration. Whether I'm painting a masterpiece, scoring goals on the football field, writing in my diary, or experimenting with Korean and Italian cuisines in the kitchen, I believe in embracing every opportunity to grow and discover new aspects of myself.
+
+                    What drives me most is my desire to become a lawyer and stand up for people who need a voice. I want to make a real difference in the world by fighting for justice and helping those who can't help themselves.
+
+                    When I'm not studying or pursuing my various interests, you'll find me reading novels, watching series, exploring new places, or cheering for my favorite F1 drivers. I love trying new foods and learning about different cultures - there's so much beauty in diversity!
+                
+            
+        
+    
+
+    
+    
+        
+            My Passions & Interests
+            
+                
+                    🎨
+                    Creative Arts
+                    Expressing myself through painting and bringing imagination to life on canvas. Art is my way of communicating emotions and stories.
+                
+                
+                    ⚽
+                    Sports Enthusiast
+                    Football, cricket, basketball, badminton - I love staying active and competitive. Sports teach me teamwork and perseverance.
+                
+                
+                    📚
+                    Reading & Writing
+                    From novels to diary entries, words are my companions. I'm working on my own novels and love getting lost in different worlds.
+                
+                
+                    🍝
+                    Culinary Adventures
+                    Cooking Korean and Italian cuisines, baking delicious treats, and exploring flavors from around the world.
+                
+                
+                    🏎️
+                    Formula 1 & Driving
+                    The thrill of racing, strategy, and precision. I love watching F1 and enjoy the freedom that comes with driving.
+                
+                
+                    🎬
+                    Entertainment
+                    Movies and series are my window to different stories and cultures. I love analyzing characters and narratives.
+                
+                
+                    🌍
+                    Exploration
+                    I love discovering new places, trying different foods and drinks, and learning about diverse cultures and traditions.
+                
+                
+                    🐎
+                    Unique Experiences
+                    From horse riding in kindergarten to constantly seeking new adventures and learning opportunities.
+                
+            
+        
+    
+
+    
+    
+        
+            My Vision
+            
+                
+                    ⚖️ Becoming a Lawyer
+                    My ultimate goal is to become a lawyer who makes a real difference in people's lives. I want to stand up for those who need a voice, fight for justice, and help create a more fair and equitable society. Law isn't just a career choice for me - it's my calling to serve others and protect what's right.
+                
+            
+        
+    
+
+    
+    
+        
+            Skills & Abilities
+            
+                
+                    
+                        🎨 Creative Arts
+                        90%
+                    
+                    
+                        
+                    
+                
+                
+                    
+                        ⚽ Sports & Athletics
+                        85%
+                    
+                    
+                        
+                    
+                
+                
+                    
+                        ✍️ Writing & Communication
+                        88%
+                    
+                    
+                        
+                    
+                
+                
+                    
+                        🍳 Cooking & Baking
+                        80%
+                    
+                    
+                        
+                    
+                
+                
+                    
+                        🚗 Driving
+                        75%
+                    
+                    
+                        
+                    
+                
+                
+                    
+                        🌍 Cultural Adaptability
+                        92%
+                    
+                    
+                        
+                    
+                
+            
+        
+    
+
+    
+    
+        
+            Let's Connect
+            
+                
+                    Get in Touch
+                    I'm always excited to connect with like-minded individuals, potential mentors, or anyone who shares similar interests. Whether you want to discuss law, sports, arts, or just have a friendly chat - I'd love to hear from you!
+
+                    
+                        📧
+                        
+                            Email
+                            hareem.farooq@email.com
+                        
+                    
+
+                    
+                        📍
+                        
+                            Location
+                            Lahore, Pakistan
+                        
+                    
+
+                    
+                        🎓
+                        
+                            Education
+                            Crescent School - O Levels
+                        
+                    
+                
+
+                
+                    
+                        Follow My Journey
+                        Stay updated with my adventures, achievements, and path to becoming a lawyer!
+
+                        
+                            💼
+                            📷
+                            📧
+                            📄
+                        
+
+                        
+                            "The best way to find yourself is to lose yourself in the service of others." - Mahatma Gandhi
+                        
+                    
+                
+            
+        
+    
+
+    
+    
+        
+            Hareem Farooq
+            Future Lawyer • Creative Soul • Justice Seeker
+            © 2025 Hareem Farooq. Crafted with passion, code, and dreams of making a difference. 🌟⚖️
+        
+    
+
+    
+        // Custom Cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+
+            setTimeout(() => {
